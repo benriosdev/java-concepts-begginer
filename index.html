@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Estudio - Programación Java</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #ecf0f1;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --code-bg: #282c34;
+            --code-text: #abb2bf;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .nav-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section-content {
+            margin-bottom: 30px;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .important-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+
+        .important-box strong {
+            color: #856404;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        code {
+            background: var(--code-bg);
+            color: #61dafb;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .progress-tracker {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color), var(--secondary-color));
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .section-card {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .code-container {
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--success-color);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ESTILOS PARA EJERCICIOS INTERACTIVOS */
+        .exercise-container {
+            background: #f8f9fa;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .exercise-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .exercise-number {
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .exercise-difficulty {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .exercise-question {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .exercise-options {
+            margin: 20px 0;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            border-color: var(--secondary-color);
+            background: #f0f8ff;
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            background: #d4edda;
+            border-color: var(--success-color);
+            color: #155724;
+        }
+
+        .option-btn.incorrect {
+            background: #f8d7da;
+            border-color: var(--accent-color);
+            color: #721c24;
+        }
+
+        .option-btn.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .exercise-feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .exercise-feedback.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback-correct {
+            background: #d4edda;
+            border-left: 5px solid var(--success-color);
+            color: #155724;
+        }
+
+        .feedback-incorrect {
+            background: #f8d7da;
+            border-left: 5px solid var(--accent-color);
+            color: #721c24;
+        }
+
+        .code-editor {
+            background: var(--code-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .code-input {
+            width: 100%;
+            min-height: 150px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            resize: vertical;
+        }
+
+        .run-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .run-btn:hover {
+            background: #229954;
+            transform: scale(1.05);
+        }
+
+        .output-console {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            min-height: 100px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .output-console.show {
+            display: block;
+        }
+
+        .hint-btn {
+            background: #ffc107;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .hint-btn:hover {
+            background: #ffb300;
+        }
+
+        .hint-box {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .hint-box.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .score-tracker {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .score-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .reset-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>📚 App de Estudio: Programación Java</h1>
+            <p>Temas 1 y 2 - Conceptos Fundamentales</p>
+        </header>
+
+        <div class="progress-tracker">
+            <h3>Tu Progreso de Estudio</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn active" onclick="showSection('inicio')">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('tema1')">📖 Tema 1</button>
+            <button class="nav-btn" onclick="showSection('tema2')">📖 Tema 2</button>
+            <button class="nav-btn" onclick="showSection('resumen')">✅ Resumen</button>
+            <button class="nav-btn" onclick="showSection('ejercicios')">🎮 Ejercicios</button>
+        </div>
+
+        <!-- SECCIÓN INICIO -->
+        <div id="inicio" class="content-section active">
+            <h2>Bienvenido a tu App de Estudio</h2>
+
+            <div class="section-card">
+                <h3>📌 ¿Qué vas a aprender?</h3>
+                <p>Esta aplicación te guiará a través de los conceptos fundamentales de la programación en Java, cubriendo:</p>
+                <ul>
+                    <li><strong>Tema 1: Programación Estructurada</strong> - Variables, operadores, casting y comentarios</li>
+                    <li><strong>Tema 2: Estructuras de Control</strong> - Condicionales, bucles, funciones y recursividad</li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <h3>🎯 Cómo usar esta App</h3>
+                <ol>
+                    <li>Navega entre los temas usando los botones superiores</li>
+                    <li>Lee cuidadosamente cada sección</li>
+                    <li>Estudia los ejemplos de código en los cajones especiales</li>
+                    <li>Practica copiando y ejecutando el código</li>
+                    <li>Resuelve los ejercicios interactivos en la sección 🎮 Ejercicios</li>
+                    <li>Revisa el resumen final para consolidar conocimientos</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/be7fe5eb-26ab-4947-9647-2beb90c7ff87.png" alt="Programación Estructurada">
+                <p><em>Diagrama conceptual de programación estructurada</em></p>
+            </div>
+        </div>
+
+        <!-- TEMA 1: PROGRAMACIÓN ESTRUCTURADA (versión simplificada) -->
+        <div id="tema1" class="content-section">
+            <h2>TEMA 1: PROGRAMACIÓN ESTRUCTURADA</h2>
+
+            <div class="concept-box">
+                <strong>💡 Concepto Clave:</strong> La programación estructurada es un paradigma que enfatiza la mejora de la claridad, calidad y tiempo de desarrollo de un programa, utilizando estructuras de control de flujo claras y bien definidas.
+            </div>
+
+            <div class="section-card">
+                <h3>Contenido del Tema 1</h3>
+                <ul>
+                    <li><strong>1.1 Primer programa en Java</strong> - Estructura básica y System.out.println()</li>
+                    <li><strong>1.2 Variables</strong> - Tipos de datos primitivos y String</li>
+                    <li><strong>1.3 Operadores</strong> - Aritméticos, lógicos, relacionales</li>
+                    <li><strong>1.4 Casting</strong> - Conversión implícita y explícita</li>
+                    <li><strong>1.5 IDE y Comentarios</strong> - Herramientas y documentación</li>
+                </ul>
+                <p><em>Revisa la sección de Resumen para ver los conceptos detallados</em></p>
+            </div>
+        </div>
+
+        <!-- TEMA 2: ESTRUCTURAS DE CONTROL (versión simplificada) -->
+        <div id="tema2" class="content-section">
+            <h2>TEMA 2: ESTRUCTURAS DE CONTROL</h2>
+
+            <div class="concept-box">
+                <strong>💡 Concepto Clave:</strong> Las estructuras de control son bloques fundamentales que permiten controlar el flujo de ejecución del programa.
+            </div>
+
+            <div class="image-container">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/7c5b4887-638c-471b-a60b-e1ea01fc8fe1.png" alt="Estructuras de Control">
+                <p><em>Visualización de estructuras de control en Java</em></p>
+            </div>
+
+            <div class="section-card">
+                <h3>Contenido del Tema 2</h3>
+                <ul>
+                    <li><strong>2.1 Condicionales</strong> - if, if-else, if-else-if, switch</li>
+                    <li><strong>2.2 Bucles</strong> - for, while, do-while</li>
+                    <li><strong>2.3 Estructuras de Salto</strong> - break, continue, return</li>
+                    <li><strong>2.4 Funciones</strong> - Métodos reutilizables</li>
+                    <li><strong>2.5 Recursividad</strong> - Funciones que se llaman a sí mismas</li>
+                    <li><strong>2.6 Palabras Reservadas</strong> - Identificadores del lenguaje</li>
+                    <li><strong>2.7 Pseudocódigo</strong> - Descripción de algoritmos</li>
+                </ul>
+                <p><em>Revisa la sección de Resumen para ver los conceptos detallados</em></p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN RESUMEN -->
+        <div id="resumen" class="content-section">
+            <h2>✅ Resumen de Conceptos Clave</h2>
+
+            <div class="section-card">
+                <h3>📖 Tema 1: Programación Estructurada</h3>
+
+                <div class="concept-box">
+                    <strong>1.1 Primer Programa en Java</strong>
+                    <ul>
+                        <li>Estructura básica: <code>public class Main { public static void main(String[] args) { } }</code></li>
+                        <li><code>System.out.println()</code> imprime con salto de línea</li>
+                        <li>Las cadenas de texto se delimitan con comillas dobles (<code>"texto"</code>)</li>
+                        <li>Se pueden combinar textos y números con el operador <code>+</code></li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>1.2 Variables</strong>
+                    <ul>
+                        <li>Son espacios de almacenamiento para datos que pueden modificarse</li>
+                        <li>Tienen: nombre, tipo de dato, valor, alcance y duración</li>
+                        <li><strong>Tipos primitivos:</strong> boolean, byte, int, long, float, double, char</li>
+                        <li><strong>Tipo complejo:</strong> String (cadenas de texto)</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>1.3 Operadores</strong>
+                    <ul>
+                        <li><strong>Aritméticos:</strong> +, -, *, /, % (módulo)</li>
+                        <li><strong>Unarios:</strong> ++, --, ! (negación)</li>
+                        <li><strong>Asignación:</strong> =, +=, -=, *=, /=</li>
+                        <li><strong>Relacionales:</strong> ==, !=, >, <, >=, <=</li>
+                        <li><strong>Lógicos:</strong> && (AND), || (OR), ! (NOT)</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>1.4 Casting</strong>
+                    <ul>
+                        <li><strong>Implícito (Widening):</strong> conversión automática de menor a mayor tamaño</li>
+                        <li><strong>Explícito (Narrowing):</strong> conversión manual de mayor a menor (puede perder datos)</li>
+                        <li>Ejemplo explícito: <code>int x = (int) 9.78;</code> → resultado: 9</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>1.5 IDE y Comentarios</strong>
+                    <ul>
+                        <li><strong>IDE:</strong> Entorno integrado (Eclipse, IntelliJ IDEA, NetBeans)</li>
+                        <li><strong>Comentarios:</strong>
+                            <ul>
+                                <li>Una línea: <code>// comentario</code></li>
+                                <li>Múltiples líneas: <code>/* comentario */</code></li>
+                                <li>Javadoc: <code>/** documentación */</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>📖 Tema 2: Estructuras de Control</h3>
+
+                <div class="concept-box">
+                    <strong>2.1 Condicionales</strong>
+                    <ul>
+                        <li><strong>IF:</strong> ejecuta código si condición es verdadera</li>
+                        <li><strong>IF-ELSE:</strong> ejecuta un bloque u otro según condición</li>
+                        <li><strong>IF-ELSE-IF:</strong> evalúa múltiples condiciones secuenciales</li>
+                        <li><strong>SWITCH:</strong> selecciona una rama según valor de expresión</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.2 Bucles</strong>
+                    <ul>
+                        <li><strong>FOR:</strong> número específico de iteraciones (se conoce de antemano)</li>
+                        <li><strong>WHILE:</strong> se ejecuta mientras condición sea verdadera</li>
+                        <li><strong>DO-WHILE:</strong> se ejecuta al menos una vez, luego evalúa condición</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.3 Estructuras de Salto</strong>
+                    <ul>
+                        <li><strong>BREAK:</strong> sale de un bucle o switch prematuramente</li>
+                        <li><strong>CONTINUE:</strong> salta a la siguiente iteración del bucle</li>
+                        <li><strong>RETURN:</strong> sale del método y devuelve un valor (opcional)</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.4 Funciones</strong>
+                    <ul>
+                        <li>Bloque de código reutilizable para realizar una tarea específica</li>
+                        <li><strong>Características:</strong> nombre, parámetros, cuerpo, valor de retorno</li>
+                        <li>Permiten modularidad y reutilización del código</li>
+                        <li>Sintaxis: <code>public static tipoRetorno nombre(parametros) { }</code></li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.5 Recursividad</strong>
+                    <ul>
+                        <li>Técnica donde una función se llama a sí misma</li>
+                        <li>Requiere <strong>caso base</strong> (detiene recursión) y <strong>caso recursivo</strong></li>
+                        <li>Útil para problemas jerárquicos (árboles, grafos)</li>
+                        <li>Ejemplos clásicos: factorial, Fibonacci</li>
+                        <li>Mayor consumo de memoria que soluciones iterativas</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.6 Palabras Reservadas</strong>
+                    <ul>
+                        <li>Identificadores con significado especial para el compilador</li>
+                        <li>NO pueden usarse como nombres de variables, métodos o clases</li>
+                        <li>Categorías: tipos de datos, control de flujo, modificadores, clases/objetos</li>
+                        <li>Ejemplos: if, else, for, while, class, public, void, return</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>2.7 Pseudocódigo</strong>
+                    <ul>
+                        <li>Descripción de alto nivel de un algoritmo</li>
+                        <li>Combina lenguaje natural con estructuras de programación</li>
+                        <li>Independiente del lenguaje de programación</li>
+                        <li>Permite planificar la lógica antes de codificar</li>
+                        <li>Facilita comunicación entre programadores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>🎯 Puntos Clave para Recordar</h3>
+
+                <div class="important-box">
+                    <strong>Fundamentos de Java:</strong>
+                    <ul>
+                        <li>Todo programa Java comienza con una clase y el método <code>main</code></li>
+                        <li>Java es un lenguaje fuertemente tipado (debes declarar tipos de variables)</li>
+                        <li>Usa punto y coma (;) para terminar instrucciones</li>
+                        <li>Las llaves { } delimitan bloques de código</li>
+                    </ul>
+                </div>
+
+                <div class="important-box">
+                    <strong>Buenas Prácticas:</strong>
+                    <ul>
+                        <li>Usa nombres descriptivos para variables y funciones</li>
+                        <li>Comenta tu código para facilitar su comprensión</li>
+                        <li>Indenta correctamente para mejorar legibilidad</li>
+                        <li>Evita código duplicado usando funciones</li>
+                        <li>Prueba tu código con diferentes casos de entrada</li>
+                    </ul>
+                </div>
+
+                <div class="important-box">
+                    <strong>Errores Comunes a Evitar:</strong>
+                    <ul>
+                        <li>Olvidar el punto y coma al final de las instrucciones</li>
+                        <li>No cerrar llaves, paréntesis o comillas</li>
+                        <li>Confundir = (asignación) con == (comparación)</li>
+                        <li>División por cero en operaciones aritméticas</li>
+                        <li>Bucles infinitos por condiciones incorrectas</li>
+                        <li>No tener caso base en funciones recursivas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN EJERCICIOS INTERACTIVOS -->
+        <div id="ejercicios" class="content-section">
+            <h2>🎮 Ejercicios Interactivos</h2>
+
+            <div class="score-tracker">
+                <h3>📊 Tu Puntuación</h3>
+                <div class="score-number" id="scoreDisplay">0 / 10</div>
+                <p>¡Responde correctamente para ganar puntos!</p>
+                <button class="reset-btn" onclick="resetScore()">🔄 Reiniciar Puntuación</button>
+            </div>
+
+            <div class="section-card">
+                <h3>📝 Instrucciones</h3>
+                <p>A continuación encontrarás ejercicios interactivos divididos en tres tipos:</p>
+                <ul>
+                    <li><strong>🎯 Opción Múltiple:</strong> Selecciona la respuesta correcta</li>
+                    <li><strong>💻 Código Interactivo:</strong> Completa el código y ejecútalo</li>
+                    <li><strong>🧩 Desafíos Prácticos:</strong> Resuelve problemas de programación</li>
+                </ul>
+                <p><em>Cada respuesta correcta suma 1 punto. ¡Intenta obtener 10/10!</em></p>
+            </div>
+
+            <!-- EJERCICIO 1: Variables y Tipos de Datos -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 1</div>
+                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Cuál es el tipo de dato correcto para almacenar el valor <code>true</code> o <code>false</code>?</strong>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(1, 'a', false)">A) int</button>
+                    <button class="option-btn" onclick="checkAnswer(1, 'b', false)">B) String</button>
+                    <button class="option-btn" onclick="checkAnswer(1, 'c', true)">C) boolean</button>
+                    <button class="option-btn" onclick="checkAnswer(1, 'd', false)">D) char</button>
+                </div>
+                <div class="exercise-feedback" id="feedback1"></div>
+                <button class="hint-btn" onclick="toggleHint(1)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint1">
+                    <strong>Pista:</strong> Este tipo de dato solo puede tener dos valores posibles: verdadero o falso.
+                </div>
+            </div>
+
+            <!-- EJERCICIO 2: Operadores -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 2</div>
+                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Cuál es el resultado de la expresión <code>10 % 3</code>?</strong>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(2, 'a', false)">A) 3</button>
+                    <button class="option-btn" onclick="checkAnswer(2, 'b', true)">B) 1</button>
+                    <button class="option-btn" onclick="checkAnswer(2, 'c', false)">C) 0</button>
+                    <button class="option-btn" onclick="checkAnswer(2, 'd', false)">D) 10</button>
+                </div>
+                <div class="exercise-feedback" id="feedback2"></div>
+                <button class="hint-btn" onclick="toggleHint(2)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint2">
+                    <strong>Pista:</strong> El operador % (módulo) devuelve el resto de una división. Por ejemplo: 10 ÷ 3 = 3 con resto de...
+                </div>
+            </div>
+
+            <!-- EJERCICIO 3: Condicionales -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 3</div>
+                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Qué imprimirá el siguiente código?</strong>
+                    <pre><code>int x = 5;
+if (x > 3 && x < 10) {
+    System.out.println("A");
+} else {
+    System.out.println("B");
+}</code></pre>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(3, 'a', true)">A) A</button>
+                    <button class="option-btn" onclick="checkAnswer(3, 'b', false)">B) B</button>
+                    <button class="option-btn" onclick="checkAnswer(3, 'c', false)">C) Nada</button>
+                    <button class="option-btn" onclick="checkAnswer(3, 'd', false)">D) Error</button>
+                </div>
+                <div class="exercise-feedback" id="feedback3"></div>
+                <button class="hint-btn" onclick="toggleHint(3)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint3">
+                    <strong>Pista:</strong> Evalúa si x es mayor que 3 Y menor que 10. El operador && requiere que ambas condiciones sean verdaderas.
+                </div>
+            </div>
+
+            <!-- EJERCICIO 4: Bucles -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 4</div>
+                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Cuántas veces se ejecutará el siguiente bucle?</strong>
+                    <pre><code>for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}</code></pre>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(4, 'a', false)">A) 4 veces</button>
+                    <button class="option-btn" onclick="checkAnswer(4, 'b', true)">B) 5 veces</button>
+                    <button class="option-btn" onclick="checkAnswer(4, 'c', false)">C) 6 veces</button>
+                    <button class="option-btn" onclick="checkAnswer(4, 'd', false)">D) Infinitas veces</button>
+                </div>
+                <div class="exercise-feedback" id="feedback4"></div>
+                <button class="hint-btn" onclick="toggleHint(4)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint4">
+                    <strong>Pista:</strong> El bucle se ejecuta mientras i < 5. Comienza en 0 y cuenta: 0, 1, 2, 3, 4 (cinco números).
+                </div>
+            </div>
+
+            <!-- EJERCICIO 5: Código Interactivo - Variables -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 5 💻</div>
+                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>Completa el código para declarar una variable de tipo String con tu nombre y luego imprímela.</strong>
+                </div>
+                <div class="code-editor">
+                    <textarea class="code-input" id="code5" placeholder="Escribe tu código aquí...">// Declara una variable String llamada "nombre" con tu nombre
+// Luego imprímela usando System.out.println()
+
+</textarea>
+                    <button class="run-btn" onclick="runCode(5)">▶️ Ejecutar Código</button>
+                    <div class="output-console" id="output5"></div>
+                </div>
+                <button class="hint-btn" onclick="toggleHint(5)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint5">
+                    <strong>Pista:</strong> Usa la sintaxis: <code>String nombre = "TuNombre";</code> y luego <code>System.out.println(nombre);</code>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 6: Código Interactivo - Operaciones -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 6 💻</div>
+                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>Crea un programa que calcule el área de un rectángulo con base 10 y altura 5.</strong>
+                </div>
+                <div class="code-editor">
+                    <textarea class="code-input" id="code6" placeholder="Escribe tu código aquí...">// Declara las variables base y altura
+// Calcula el área (base * altura)
+// Imprime el resultado
+
+</textarea>
+                    <button class="run-btn" onclick="runCode(6)">▶️ Ejecutar Código</button>
+                    <div class="output-console" id="output6"></div>
+                </div>
+                <button class="hint-btn" onclick="toggleHint(6)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint6">
+                    <strong>Pista:</strong> El área de un rectángulo se calcula: área = base × altura
+                </div>
+            </div>
+
+            <!-- EJERCICIO 7: Código Interactivo - Condicionales -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 7 💻</div>
+                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>Escribe un programa que determine si un número es par o impar. Usa el número 15.</strong>
+                </div>
+                <div class="code-editor">
+                    <textarea class="code-input" id="code7" placeholder="Escribe tu código aquí...">// Declara una variable numero con valor 15
+// Usa if-else para verificar si es par o impar
+// Imprime "El número es par" o "El número es impar"
+
+</textarea>
+                    <button class="run-btn" onclick="runCode(7)">▶️ Ejecutar Código</button>
+                    <div class="output-console" id="output7"></div>
+                </div>
+                <button class="hint-btn" onclick="toggleHint(7)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint7">
+                    <strong>Pista:</strong> Un número es par si <code>numero % 2 == 0</code>, de lo contrario es impar.
+                </div>
+            </div>
+
+            <!-- EJERCICIO 8: Código Interactivo - Bucles -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 8 💻</div>
+                    <div class="exercise-difficulty">⭐⭐⭐ Nivel: Avanzado</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>Crea un bucle que imprima los números del 1 al 10.</strong>
+                </div>
+                <div class="code-editor">
+                    <textarea class="code-input" id="code8" placeholder="Escribe tu código aquí...">// Usa un bucle for para imprimir números del 1 al 10
+// Cada número debe imprimirse en una línea
+
+</textarea>
+                    <button class="run-btn" onclick="runCode(8)">▶️ Ejecutar Código</button>
+                    <div class="output-console" id="output8"></div>
+                </div>
+                <button class="hint-btn" onclick="toggleHint(8)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint8">
+                    <strong>Pista:</strong> Usa <code>for (int i = 1; i <= 10; i++)</code> y dentro del bucle <code>System.out.println(i);</code>
+                </div>
+            </div>
+
+            <!-- EJERCICIO 9: Casting -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 9</div>
+                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Qué valor tendrá la variable <code>resultado</code> después de ejecutar este código?</strong>
+                    <pre><code>double decimal = 7.9;
+int resultado = (int) decimal;</code></pre>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(9, 'a', false)">A) 8</button>
+                    <button class="option-btn" onclick="checkAnswer(9, 'b', true)">B) 7</button>
+                    <button class="option-btn" onclick="checkAnswer(9, 'c', false)">C) 7.9</button>
+                    <button class="option-btn" onclick="checkAnswer(9, 'd', false)">D) Error</button>
+                </div>
+                <div class="exercise-feedback" id="feedback9"></div>
+                <button class="hint-btn" onclick="toggleHint(9)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint9">
+                    <strong>Pista:</strong> El casting explícito a int trunca (corta) los decimales, no redondea.
+                </div>
+            </div>
+
+            <!-- EJERCICIO 10: Recursividad -->
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <div class="exercise-number">Ejercicio 10</div>
+                    <div class="exercise-difficulty">⭐⭐⭐ Nivel: Avanzado</div>
+                </div>
+                <div class="exercise-question">
+                    <strong>¿Cuál es el elemento más importante en una función recursiva para evitar un bucle infinito?</strong>
+                </div>
+                <div class="exercise-options">
+                    <button class="option-btn" onclick="checkAnswer(10, 'a', false)">A) Un bucle for</button>
+                    <button class="option-btn" onclick="checkAnswer(10, 'b', true)">B) Un caso base</button>
+                    <button class="option-btn" onclick="checkAnswer(10, 'c', false)">C) Una variable global</button>
+                    <button class="option-btn" onclick="checkAnswer(10, 'd', false)">D) Un operador lógico</button>
+                </div>
+                <div class="exercise-feedback" id="feedback10"></div>
+                <button class="hint-btn" onclick="toggleHint(10)">💡 Ver Pista</button>
+                <div class="hint-box" id="hint10">
+                    <strong>Pista:</strong> Es la condición que detiene la recursión y evita que la función se llame infinitamente.
+                </div>
+            </div>
+
+            <div class="section-card" style="background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);">
+                <h3>🏆 ¡Excelente Trabajo!</h3>
+                <p>Has completado todos los ejercicios interactivos. Aquí tienes algunas sugerencias:</p>
+                <ol>
+                    <li>Repasa los ejercicios que respondiste incorrectamente</li>
+                    <li>Intenta resolver los ejercicios de código sin mirar las pistas</li>
+                    <li>Experimenta modificando los códigos de ejemplo</li>
+                    <li>Crea tus propios ejercicios basándote en estos ejemplos</li>
+                    <li>Practica en un IDE real (Eclipse, IntelliJ IDEA, NetBeans)</li>
+                </ol>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <p><strong>🎓 App de Estudio - Programación Java</strong></p>
+            <p>Temas 1 y 2: Programación Estructurada y Estructuras de Control</p>
+            <p style="font-size: 0.9rem; color: #999; margin-bottom: 12px;">Desarrollado por <strong style="color: #F26B5A;">Benja</strong></p>
+            <a href="https://github.com/benjadevs" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #24292e 0%, #1a1d21 100%); color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease; border: 1px solid #444;">
+                <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" style="display: inline-block;">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                <span>GitHub: benjadevs</span>
+            </a>
+
+            <p style="margin-top: 10px; color: #7f8c8d;">© 2025 - Creado para facilitar el aprendizaje de Java / iLERNA DAW</p>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let score = 0;
+        let totalQuestions = 10;
+        let answeredQuestions = new Set();
+
+        // Sistema de navegación
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgress(sectionId);
+        }
+
+        // Sistema de progreso
+        function updateProgress(sectionId) {
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
+
+            switch(sectionId) {
+                case 'inicio':
+                    progress = 10;
+                    break;
+                case 'tema1':
+                    progress = 30;
+                    break;
+                case 'tema2':
+                    progress = 50;
+                    break;
+                case 'resumen':
+                    progress = 70;
+                    break;
+                case 'ejercicios':
+                    progress = 90;
+                    break;
+            }
+
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = progress + '%';
+        }
+
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling.querySelector('code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            const originalText = button.textContent;
+            button.textContent = '✅ ¡Copiado!';
+            button.style.background = '#27ae60';
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
+
+        // Sistema de puntuación
+        function updateScore() {
+            document.getElementById('scoreDisplay').textContent = score + ' / ' + totalQuestions;
+        }
+
+        function resetScore() {
+            score = 0;
+            answeredQuestions.clear();
+            updateScore();
+
+            // Resetear todos los ejercicios
+            for (let i = 1; i <= totalQuestions; i++) {
+                const feedback = document.getElementById('feedback' + i);
+                if (feedback) {
+                    feedback.classList.remove('show');
+                    feedback.className = 'exercise-feedback';
+                }
+
+                // Resetear botones de opciones
+                const container = feedback?.parentElement;
+                if (container) {
+                    const optionBtns = container.querySelectorAll('.option-btn');
+                    optionBtns.forEach(btn => {
+                        btn.classList.remove('correct', 'incorrect', 'disabled');
+                        btn.disabled = false;
+                    });
+                }
+
+                // Limpiar consolas de código
+                const output = document.getElementById('output' + i);
+                if (output) {
+                    output.classList.remove('show');
+                    output.textContent = '';
+                }
+            }
+
+            alert('✅ ¡Puntuación reiniciada! Puedes volver a intentar los ejercicios.');
+        }
+
+        // Verificar respuestas de opción múltiple
+        function checkAnswer(questionNum, option, isCorrect) {
+            // Si ya fue respondida, no hacer nada
+            if (answeredQuestions.has(questionNum)) {
+                return;
+            }
+
+            const feedback = document.getElementById('feedback' + questionNum);
+            const optionBtns = event.target.parentElement.querySelectorAll('.option-btn');
+
+            // Deshabilitar todos los botones
+            optionBtns.forEach(btn => {
+                btn.classList.add('disabled');
+                btn.disabled = true;
+            });
+
+            // Marcar la respuesta
+            event.target.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+            // Mostrar feedback
+            feedback.classList.add('show');
+            if (isCorrect) {
+                feedback.className = 'exercise-feedback feedback-correct show';
+                feedback.innerHTML = '<strong>✅ ¡Correcto!</strong> Excelente trabajo. Has comprendido el concepto.';
+                score++;
+                answeredQuestions.add(questionNum);
+                updateScore();
+            } else {
+                feedback.className = 'exercise-feedback feedback-incorrect show';
+                feedback.innerHTML = '<strong>❌ Incorrecto.</strong> Intenta revisar el concepto en la sección de Resumen.';
+            }
+        }
+
+        // Mostrar/ocultar pistas
+        function toggleHint(hintNum) {
+            const hint = document.getElementById('hint' + hintNum);
+            hint.classList.toggle('show');
+        }
+
+        // Ejecutar código (simulación)
+        function runCode(codeNum) {
+            const codeInput = document.getElementById('code' + codeNum).value.trim();
+            const output = document.getElementById('output' + codeNum);
+
+            if (!codeInput) {
+                output.classList.add('show');
+                output.textContent = '❌ Error: No has escrito ningún código.';
+                return;
+            }
+
+            output.classList.add('show');
+
+            // Simulación de ejecución basada en el ejercicio
+            let result = '';
+
+            switch(codeNum) {
+                case 5:
+                    // Ejercicio de String
+                    if (codeInput.includes('String') && codeInput.includes('=') && 
+                        codeInput.includes('System.out.println')) {
+                        const match = codeInput.match(/String\s+\w+\s*=\s*"([^"]+)"/);
+                        if (match) {
+                            result = '✅ Salida del programa:\n' + match[1];
+                            if (!answeredQuestions.has(codeNum)) {
+                                score++;
+                                answeredQuestions.add(codeNum);
+                                updateScore();
+                            }
+                        } else {
+                            result = '❌ Error: Verifica la sintaxis de tu código.';
+                        }
+                    } else {
+                        result = '❌ Error: Debes declarar una variable String e imprimirla.';
+                    }
+                    break;
+
+                case 6:
+                    // Ejercicio de área
+                    if ((codeInput.includes('10') && codeInput.includes('5')) || 
+                        (codeInput.includes('base') && codeInput.includes('altura'))) {
+                        if (codeInput.includes('*') || codeInput.includes('área') || codeInput.includes('area')) {
+                            result = '✅ Salida del programa:\nEl área del rectángulo es: 50';
+                            if (!answeredQuestions.has(codeNum)) {
+                                score++;
+                                answeredQuestions.add(codeNum);
+                                updateScore();
+                            }
+                        } else {
+                            result = '❌ Error: Debes multiplicar base por altura.';
+                        }
+                    } else {
+                        result = '❌ Error: Verifica que uses los valores correctos (base=10, altura=5).';
+                    }
+                    break;
+
+                case 7:
+                    // Ejercicio par/impar
+                    if (codeInput.includes('15') && codeInput.includes('if') && codeInput.includes('%')) {
+                        if (codeInput.toLowerCase().includes('impar')) {
+                            result = '✅ Salida del programa:\nEl número es impar';
+                            if (!answeredQuestions.has(codeNum)) {
+                                score++;
+                                answeredQuestions.add(codeNum);
+                                updateScore();
+                            }
+                        } else {
+                            result = '⚠️ Verifica: 15 es un número impar.';
+                        }
+                    } else {
+                        result = '❌ Error: Usa if-else y el operador % para verificar si es par o impar.';
+                    }
+                    break;
+
+                case 8:
+                    // Ejercicio bucle
+                    if (codeInput.includes('for') && codeInput.includes('println')) {
+                        result = '✅ Salida del programa:\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10';
+                        if (!answeredQuestions.has(codeNum)) {
+                            score++;
+                            answeredQuestions.add(codeNum);
+                            updateScore();
+                        }
+                    } else {
+                        result = '❌ Error: Debes usar un bucle for y System.out.println().';
+                    }
+                    break;
+
+                default:
+                    result = 'Código ejecutado.';
+            }
+
+            output.textContent = result;
+        }
+
+        // Inicializar
+        updateProgress('inicio');
+        updateScore();
+
+        // Añadir efecto de resaltado
+        const sectionCards = document.querySelectorAll('.section-card');
+        sectionCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeft = '5px solid #3498db';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeft = '';
+            });
+        });
+
+        // Guardar progreso en localStorage
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('javaAppScore', score);
+            localStorage.setItem('javaAppAnswered', JSON.stringify([...answeredQuestions]));
+        });
+
+        // Cargar progreso guardado
+        window.addEventListener('load', function() {
+            const savedScore = localStorage.getItem('javaAppScore');
+            const savedAnswered = localStorage.getItem('javaAppAnswered');
+
+            if (savedScore) {
+                score = parseInt(savedScore);
+                updateScore();
+            }
+
+            if (savedAnswered) {
+                const answered = JSON.parse(savedAnswered);
+                answered.forEach(q => answeredQuestions.add(q));
+            }
+        });
+    </script>
+</body>
+</html>
