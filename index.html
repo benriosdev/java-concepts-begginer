@@ -271,234 +271,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* ESTILOS PARA EJERCICIOS INTERACTIVOS */
-        .exercise-container {
-            background: #f8f9fa;
-            border: 2px solid var(--secondary-color);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .exercise-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .exercise-number {
-            background: var(--secondary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        .exercise-difficulty {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .exercise-question {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-size: 1.1em;
-        }
-
-        .exercise-options {
-            margin: 20px 0;
-        }
-
-        .option-btn {
-            display: block;
-            width: 100%;
-            padding: 15px 20px;
-            margin: 10px 0;
-            background: white;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .option-btn:hover {
-            border-color: var(--secondary-color);
-            background: #f0f8ff;
-            transform: translateX(5px);
-        }
-
-        .option-btn.correct {
-            background: #d4edda;
-            border-color: var(--success-color);
-            color: #155724;
-        }
-
-        .option-btn.incorrect {
-            background: #f8d7da;
-            border-color: var(--accent-color);
-            color: #721c24;
-        }
-
-        .option-btn.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .exercise-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .exercise-feedback.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feedback-correct {
-            background: #d4edda;
-            border-left: 5px solid var(--success-color);
-            color: #155724;
-        }
-
-        .feedback-incorrect {
-            background: #f8d7da;
-            border-left: 5px solid var(--accent-color);
-            color: #721c24;
-        }
-
-        .code-editor {
-            background: var(--code-bg);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .code-input {
-            width: 100%;
-            min-height: 150px;
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border: none;
-            border-radius: 5px;
-            padding: 15px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.95em;
-            resize: vertical;
-        }
-
-        .run-btn {
-            background: var(--success-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .run-btn:hover {
-            background: #229954;
-            transform: scale(1.05);
-        }
-
-        .output-console {
-            background: #1e1e1e;
-            color: #00ff00;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 15px;
-            min-height: 100px;
-            font-family: 'Courier New', Courier, monospace;
-            white-space: pre-wrap;
-            display: none;
-        }
-
-        .output-console.show {
-            display: block;
-        }
-
-        .hint-btn {
-            background: #ffc107;
-            color: #333;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .hint-btn:hover {
-            background: #ffb300;
-        }
-
-        .hint-box {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #ffc107;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .hint-box.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        .score-tracker {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .score-number {
-            font-size: 3em;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .reset-btn {
-            background: white;
-            color: var(--primary-color);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .reset-btn:hover {
-            transform: scale(1.05);
-        }
-
         .footer {
             text-align: center;
             padding: 20px;
@@ -543,7 +315,6 @@
             <button class="nav-btn" onclick="showSection('tema1')">📖 Tema 1</button>
             <button class="nav-btn" onclick="showSection('tema2')">📖 Tema 2</button>
             <button class="nav-btn" onclick="showSection('resumen')">✅ Resumen</button>
-            <button class="nav-btn" onclick="showSection('ejercicios')">🎮 Ejercicios</button>
         </div>
 
         <!-- SECCIÓN INICIO -->
@@ -566,7 +337,6 @@
                     <li>Lee cuidadosamente cada sección</li>
                     <li>Estudia los ejemplos de código en los cajones especiales</li>
                     <li>Practica copiando y ejecutando el código</li>
-                    <li>Resuelve los ejercicios interactivos en la sección 🎮 Ejercicios</li>
                     <li>Revisa el resumen final para consolidar conocimientos</li>
                 </ol>
             </div>
@@ -577,7 +347,7 @@
             </div>
         </div>
 
-        <!-- TEMA 1: PROGRAMACIÓN ESTRUCTURADA (versión simplificada) -->
+        <!-- TEMA 1: PROGRAMACIÓN ESTRUCTURADA -->
         <div id="tema1" class="content-section">
             <h2>TEMA 1: PROGRAMACIÓN ESTRUCTURADA</h2>
 
@@ -585,25 +355,317 @@
                 <strong>💡 Concepto Clave:</strong> La programación estructurada es un paradigma que enfatiza la mejora de la claridad, calidad y tiempo de desarrollo de un programa, utilizando estructuras de control de flujo claras y bien definidas.
             </div>
 
+            <!-- 1.1 Primer programa en Java -->
             <div class="section-card">
-                <h3>Contenido del Tema 1</h3>
+                <h3>1.1 Primer programa en Java</h3>
+                <p>Para empezar a programar en Java, necesitamos entender la estructura básica de un programa. Todo programa Java comienza con una clase y un método <code>main</code>.</p>
+
+                <div class="important-box">
+                    <strong>⚠️ Importante:</strong> Las cadenas de texto (String) se delimitan con comillas dobles ("). Se pueden combinar cadenas de texto con números usando el operador +
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>// Primer programa en Java: Hola Mundo
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hola Mundo!");
+  }
+}</code></pre>
+                </div>
+
+                <p><strong>Ejemplo práctico:</strong> Tabla de multiplicar del 4</p>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    System.out.println("Tabla de Multiplicar del 4");
+    System.out.println("--------------------------");
+    System.out.println("4x1= " + 4);
+    System.out.println("4x2= " + 8);
+    System.out.println("4x3= " + 12);
+    System.out.println("4x4= " + 16);
+    System.out.println("4x5= " + 20);
+    System.out.println("4x6= " + 24);
+    System.out.println("4x7= " + 28);
+    System.out.println("4x8= " + 32);
+    System.out.println("4x9= " + 36);
+    System.out.println("4x10= " + 40);
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 1.2 Variables -->
+            <div class="section-card">
+                <h3>1.2 Variables</h3>
+                <p>Una variable es un espacio de almacenamiento que se utiliza para almacenar datos que pueden ser modificados durante el uso de un programa.</p>
+
+                <h4>📋 Características de una variable:</h4>
+                <ol>
+                    <li><strong>Nombre:</strong> identificador único</li>
+                    <li><strong>Tipo de dato:</strong> especifica el tipo de valor</li>
+                    <li><strong>Valor:</strong> el contenido almacenado</li>
+                    <li><strong>Alcance:</strong> contexto donde puede accederse</li>
+                    <li><strong>Duración:</strong> tiempo que existe en memoria</li>
+                </ol>
+
+                <h4>🔢 Tipos de datos primitivos en Java:</h4>
+
+                <div class="concept-box">
+                    <strong>Valores lógicos:</strong>
+                    <ul>
+                        <li><code>boolean</code> - true o false</li>
+                    </ul>
+
+                    <strong>Números Enteros:</strong>
+                    <ul>
+                        <li><code>byte</code> - números pequeños</li>
+                        <li><code>int</code> - números enteros</li>
+                        <li><code>long</code> - números enteros grandes</li>
+                    </ul>
+
+                    <strong>Números Decimales:</strong>
+                    <ul>
+                        <li><code>float</code> - decimales de precisión simple</li>
+                        <li><code>double</code> - decimales de doble precisión</li>
+                    </ul>
+
+                    <strong>Caracteres:</strong>
+                    <ul>
+                        <li><code>char</code> - un único carácter</li>
+                    </ul>
+
+                    <strong>Cadenas de texto:</strong>
+                    <ul>
+                        <li><code>String</code> - texto (tipo complejo)</li>
+                    </ul>
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Declaración de variables
+    boolean esVerdadero = true;
+    byte numeroPequeno = 100;
+    int numeroEntero = 100000;
+    float numeroDecimal = 10.5f;
+    double numeroDoble = 10.5;
+    char letra = 'A';
+    String texto = "Hola, mundo!";
+
+    // Ejemplo práctico: Temperatura
+    String mensaje = "La temperatura máxima en Oviedo es: ";
+    double temperatura = 21.5;
+    System.out.println(mensaje + temperatura + "ºC");
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 1.3 Operadores -->
+            <div class="section-card">
+                <h3>1.3 Operadores</h3>
+                <p>Un operador es un símbolo que indica al ordenador que realice una operación matemática, lógica o de manipulación de datos específica.</p>
+
+                <h4>➕ 1. OPERADORES ARITMÉTICOS</h4>
                 <ul>
-                    <li><strong>1.1 Primer programa en Java</strong> - Estructura básica y System.out.println()</li>
-                    <li><strong>1.2 Variables</strong> - Tipos de datos primitivos y String</li>
-                    <li><strong>1.3 Operadores</strong> - Aritméticos, lógicos, relacionales</li>
-                    <li><strong>1.4 Casting</strong> - Conversión implícita y explícita</li>
-                    <li><strong>1.5 IDE y Comentarios</strong> - Herramientas y documentación</li>
+                    <li><code>+</code> suma</li>
+                    <li><code>-</code> resta</li>
+                    <li><code>*</code> multiplicación</li>
+                    <li><code>/</code> división</li>
+                    <li><code>%</code> módulo (resto de una división)</li>
                 </ul>
-                <p><em>Revisa la sección de Resumen para ver los conceptos detallados</em></p>
+
+                <h4>🔄 2. OPERADORES UNARIOS</h4>
+                <ul>
+                    <li><code>++</code> incremento (aumenta en 1)</li>
+                    <li><code>--</code> decremento (disminuye en 1)</li>
+                    <li><code>!</code> negación lógica</li>
+                </ul>
+
+                <h4>📝 3. OPERADORES DE ASIGNACIÓN</h4>
+                <ul>
+                    <li><code>=</code> asignación</li>
+                    <li><code>+=</code> suma y asignación</li>
+                    <li><code>-=</code> resta y asignación</li>
+                    <li><code>*=</code> multiplicación y asignación</li>
+                    <li><code>/=</code> división y asignación</li>
+                </ul>
+
+                <h4>⚖️ 4. OPERADORES RELACIONALES</h4>
+                <ul>
+                    <li><code>==</code> igual a</li>
+                    <li><code>!=</code> no igual a</li>
+                    <li><code>&gt;</code> mayor que</li>
+                    <li><code>&lt;</code> menor que</li>
+                    <li><code>&gt;=</code> mayor o igual que</li>
+                    <li><code>&lt;=</code> menor o igual que</li>
+                </ul>
+
+                <h4>🔀 5. OPERADORES LÓGICOS</h4>
+                <ul>
+                    <li><code>&&</code> AND lógico</li>
+                    <li><code>||</code> OR lógico</li>
+                    <li><code>!</code> NOT lógico</li>
+                </ul>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Operadores aritméticos
+    int a = 10;
+    int b = 5;
+    int suma = a + b;        // 15
+    int resta = a - b;       // 5
+    int mult = a * b;        // 50
+    int divide = a / b;      // 2
+    int modulo = a % b;      // 0
+
+    // Operadores de asignación
+    a += 5;  // a = a + 5 = 15
+    a -= 3;  // a = a - 3 = 12
+
+    // Operadores relacionales
+    boolean mayor = (a > b);     // true
+    boolean igual = (a == b);    // false
+
+    // Operadores lógicos
+    boolean resultado1 = true && false;  // false
+    boolean resultado2 = true || false;  // true
+    boolean resultado3 = !true;          // false
+
+    System.out.println("Suma: " + suma);
+    System.out.println("Mayor: " + mayor);
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 1.4 Casting -->
+            <div class="section-card">
+                <h3>1.4 Casting</h3>
+                <p>El casting es el proceso de convertir un valor de un tipo de dato a otro.</p>
+
+                <h4>📊 Tipos de Casting:</h4>
+
+                <div class="concept-box">
+                    <strong>1. Casting Implícito (Widening):</strong>
+                    <ul>
+                        <li>Conversión automática de tipo menor a mayor</li>
+                        <li>Java lo hace automáticamente</li>
+                        <li>Ejemplo: int → long, float → double</li>
+                    </ul>
+
+                    <strong>2. Casting Explícito (Narrowing):</strong>
+                    <ul>
+                        <li>Conversión de tipo mayor a menor</li>
+                        <li>Debe especificarse manualmente</li>
+                        <li>Puede causar pérdida de datos</li>
+                        <li>Ejemplo: double → int</li>
+                    </ul>
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // CASTING IMPLÍCITO
+    int numeroEntero = 100;
+    long numeroLargo = numeroEntero;        // Automático
+    double numeroDecimal = numeroEntero;    // Automático
+
+    System.out.println("Número entero: " + numeroEntero);
+    System.out.println("Número largo: " + numeroLargo);
+    System.out.println("Número decimal: " + numeroDecimal);
+
+    // CASTING EXPLÍCITO
+    double decimal = 9.78;
+    int entero = (int) decimal;  // Manual - pierde decimales
+
+    System.out.println("Número decimal: " + decimal);    // 9.78
+    System.out.println("Número entero: " + entero);      // 9
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 1.5 IDE y Comentarios -->
+            <div class="section-card">
+                <h3>1.5 IDE y Comentarios</h3>
+
+                <h4>💻 IDE (Integrated Development Environment)</h4>
+                <p>Un IDE es un entorno de desarrollo integrado que proporciona herramientas completas para desarrollar software.</p>
+
+                <div class="concept-box">
+                    <strong>Componentes de un IDE:</strong>
+                    <ul>
+                        <li>Editor de Código Fuente</li>
+                        <li>Compilador/Intérprete</li>
+                        <li>Depurador (Debugger)</li>
+                        <li>Constructor de proyectos</li>
+                        <li>Sistema de control de versiones</li>
+                    </ul>
+
+                    <strong>IDEs populares para Java:</strong>
+                    <ul>
+                        <li>Eclipse</li>
+                        <li>IntelliJ IDEA</li>
+                        <li>NetBeans</li>
+                        <li>Visual Studio Code</li>
+                    </ul>
+                </div>
+
+                <h4>💬 Comentarios en Java</h4>
+                <p>Los comentarios son fragmentos de texto que el compilador ignora. Sirven para documentar el código.</p>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Comentario de una sola línea
+    int numero = 10;  // También puede ir al final
+
+    /* 
+     * Comentario de múltiples líneas.
+     * Se puede utilizar para describir
+     * secciones del código.
+     */
+    System.out.println(numero);
+  }
+
+  /**
+   * Suma dos números enteros.
+   * @param a El primer número a sumar
+   * @param b El segundo número a sumar
+   * @return La suma de a y b
+   */
+  public static int sumar(int a, int b) {
+    return a + b;
+  }
+}</code></pre>
+                </div>
+
+                <div class="important-box">
+                    <strong>⚠️ Tipos de comentarios:</strong>
+                    <ul>
+                        <li><code>//</code> - Comentario de una línea</li>
+                        <li><code>/* */</code> - Comentario de múltiples líneas</li>
+                        <li><code>/** */</code> - Javadoc (documentación)</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- TEMA 2: ESTRUCTURAS DE CONTROL (versión simplificada) -->
+        <!-- TEMA 2: ESTRUCTURAS DE CONTROL -->
         <div id="tema2" class="content-section">
             <h2>TEMA 2: ESTRUCTURAS DE CONTROL</h2>
 
             <div class="concept-box">
-                <strong>💡 Concepto Clave:</strong> Las estructuras de control son bloques fundamentales que permiten controlar el flujo de ejecución del programa.
+                <strong>💡 Concepto Clave:</strong> Las estructuras de control son bloques fundamentales que permiten controlar el flujo de ejecución del programa, decidiendo qué instrucciones se ejecutan y en qué orden.
             </div>
 
             <div class="image-container">
@@ -611,18 +673,416 @@
                 <p><em>Visualización de estructuras de control en Java</em></p>
             </div>
 
+            <!-- 2.1 Condicionales -->
             <div class="section-card">
-                <h3>Contenido del Tema 2</h3>
+                <h3>2.1 Condicionales</h3>
+                <p>Las estructuras condicionales permiten ejecutar diferentes bloques de código dependiendo de si una condición se evalúa como verdadera o falsa.</p>
+
+                <h4>🔀 Tipos de Estructuras Condicionales:</h4>
+
+                <div class="concept-box">
+                    <strong>1. IF Simple:</strong> Ejecuta código si la condición es verdadera
+                    <br><strong>2. IF-ELSE:</strong> Ejecuta un bloque u otro según la condición
+                    <br><strong>3. IF-ELSE-IF:</strong> Evalúa múltiples condiciones secuenciales
+                    <br><strong>4. SWITCH:</strong> Selecciona una de muchas ramas de ejecución
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // IF simple
+    int numero = 10;
+    if (numero > 5) {
+      System.out.println("El número es mayor que 5");
+    }
+
+    // IF-ELSE
+    int numero2 = 4;
+    if (numero2 > 5) {
+      System.out.println("El número es mayor que 5");
+    } else {
+      System.out.println("El número es menor o igual que 5");
+    }
+
+    // IF-ELSE-IF
+    int numero3 = 7;
+    if (numero3 > 10) {
+      System.out.println("El número es mayor que 10");
+    } else if (numero3 > 5) {
+      System.out.println("Mayor que 5 pero menor o igual a 10");
+    } else {
+      System.out.println("El número es menor o igual que 5");
+    }
+
+    // SWITCH
+    int dia = 3;
+    switch (dia) {
+      case 1:
+        System.out.println("Lunes");
+        break;
+      case 2:
+        System.out.println("Martes");
+        break;
+      case 3:
+        System.out.println("Miércoles");
+        break;
+      default:
+        System.out.println("Día no válido");
+        break;
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 2.2 Bucles -->
+            <div class="section-card">
+                <h3>2.2 Bucles (Repetición)</h3>
+                <p>Los bucles permiten ejecutar repetidamente un bloque de código mientras se cumple una condición.</p>
+
+                <h4>🔁 Tipos de Bucles:</h4>
+
+                <div class="concept-box">
+                    <strong>1. FOR:</strong>
+                    <ul>
+                        <li>Ejecuta un número específico de veces</li>
+                        <li>Ideal cuando se conoce el número de iteraciones</li>
+                    </ul>
+
+                    <strong>2. WHILE:</strong>
+                    <ul>
+                        <li>Ejecuta mientras una condición sea verdadera</li>
+                        <li>Útil cuando no se sabe cuántas iteraciones serán</li>
+                    </ul>
+
+                    <strong>3. DO-WHILE:</strong>
+                    <ul>
+                        <li>Similar a while pero se ejecuta al menos una vez</li>
+                        <li>La condición se evalúa al final</li>
+                    </ul>
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Bucle FOR
+    System.out.println("Bucle FOR:");
+    for (int i = 0; i < 5; i++) {
+      System.out.println("Iteración: " + i);
+    }
+
+    // Bucle WHILE
+    System.out.println("\nBucle WHILE:");
+    int i = 0;
+    while (i < 5) {
+      System.out.println("Iteración: " + i);
+      i++;
+    }
+
+    // Bucle DO-WHILE
+    System.out.println("\nBucle DO-WHILE:");
+    int j = 0;
+    do {
+      System.out.println("Iteración: " + j);
+      j++;
+    } while (j < 5);
+  }
+}</code></pre>
+                </div>
+
+                <div class="important-box">
+                    <strong>⚠️ Importante:</strong> El bucle do-while SIEMPRE se ejecuta al menos una vez, mientras que for y while podrían no ejecutarse si la condición inicial es falsa.
+                </div>
+            </div>
+
+            <!-- 2.3 Estructuras de Salto -->
+            <div class="section-card">
+                <h3>2.3 Estructuras de Salto</h3>
+                <p>Permiten alterar el flujo normal de ejecución de manera abrupta.</p>
+
+                <h4>⚡ Tipos de Saltos:</h4>
+
+                <div class="concept-box">
+                    <strong>BREAK:</strong> Sale de un bucle o switch antes de completarse
+                    <br><strong>CONTINUE:</strong> Omite la iteración actual y pasa a la siguiente
+                    <br><strong>RETURN:</strong> Sale de un método y devuelve un valor
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // BREAK - Sale del bucle cuando i es igual a 5
+    System.out.println("Ejemplo BREAK:");
+    for (int i = 0; i < 10; i++) {
+      if (i == 5) {
+        break;  // Sale del bucle
+      }
+      System.out.println("Iteración: " + i);
+    }
+
+    // CONTINUE - Omite las iteraciones cuando i es par
+    System.out.println("\nEjemplo CONTINUE:");
+    for (int i = 0; i < 10; i++) {
+      if (i % 2 == 0) {
+        continue;  // Salta a la siguiente iteración
+      }
+      System.out.println("Iteración impar: " + i);
+    }
+
+    // RETURN - Devuelve un valor desde un método
+    int resultado = sumar(10, 5);
+    System.out.println("\nLa suma es: " + resultado);
+  }
+
+  public static int sumar(int a, int b) {
+    return a + b;  // Devuelve la suma de a y b
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 2.4 Funciones -->
+            <div class="section-card">
+                <h3>2.4 Funciones</h3>
+                <p>Una función es un bloque de código reutilizable que realiza una tarea específica.</p>
+
+                <h4>🎯 Características de una Función:</h4>
+                <ol>
+                    <li><strong>Nombre:</strong> identifica la función de manera única</li>
+                    <li><strong>Parámetros:</strong> variables que recibe como entrada</li>
+                    <li><strong>Cuerpo:</strong> bloque de código que define qué hace</li>
+                    <li><strong>Valor de retorno:</strong> resultado que devuelve (opcional)</li>
+                </ol>
+
+                <div class="concept-box">
+                    <strong>Tipos de Funciones:</strong>
+                    <ul>
+                        <li>Sin parámetros y sin retorno</li>
+                        <li>Con parámetros y con retorno</li>
+                        <li>Con parámetros y sin retorno</li>
+                        <li>Sin parámetros y con retorno</li>
+                    </ul>
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Llamar función sin parámetros y sin retorno
+    imprimirMensaje();
+
+    // Llamar función con parámetros y con retorno
+    int resultado = sumar(10, 5);
+    System.out.println("La suma es: " + resultado);
+
+    // Llamar función con parámetros y sin retorno
+    imprimirSaludo("Carlos");
+  }
+
+  // Función sin parámetros y sin retorno
+  public static void imprimirMensaje() {
+    System.out.println("¡Bienvenido al curso de Java!");
+  }
+
+  // Función con parámetros y con retorno
+  public static int sumar(int a, int b) {
+    return a + b;
+  }
+
+  // Función con parámetros y sin retorno
+  public static void imprimirSaludo(String nombre) {
+    System.out.println("Hola, " + nombre + "!");
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- 2.5 Recursividad -->
+            <div class="section-card">
+                <h3>2.5 Recursividad</h3>
+                <p>La recursividad es una técnica donde una función se llama a sí misma para resolver problemas más pequeños del mismo tipo.</p>
+
+                <div class="important-box">
+                    <strong>⚠️ Elementos Clave:</strong>
+                    <ul>
+                        <li><strong>Caso base:</strong> Condición que detiene la recursión</li>
+                        <li><strong>Caso recursivo:</strong> Llamada a la función misma con problema más pequeño</li>
+                        <li>Cada llamada debe acercarse al caso base</li>
+                        <li>Sin caso base correcto = desbordamiento de pila (stack overflow)</li>
+                    </ul>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Ejemplo: Factorial</strong>
+                    <br>El factorial de 5 es: 5! = 5 × 4 × 3 × 2 × 1 = 120
+                    <br><br>
+                    <strong>Ejemplo: Fibonacci</strong>
+                    <br>Sucesión: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...
+                    <br>Cada término es la suma de los dos anteriores
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>public class Main {
+  public static void main(String[] args) {
+    // Factorial recursivo
+    int numero = 5;
+    int resultadoFactorial = factorial(numero);
+    System.out.println("El factorial de " + numero + " es: " + 
+                       resultadoFactorial);
+
+    // Fibonacci recursivo
+    int n = 10;
+    int resultadoFib = fibonacci(n);
+    System.out.println("El término " + n + " de Fibonacci es: " + 
+                       resultadoFib);
+  }
+
+  // Función recursiva para calcular el factorial
+  public static int factorial(int n) {
+    if (n == 0) {
+      return 1;  // Condición base
+    } else {
+      return n * factorial(n - 1);  // Llamada recursiva
+    }
+  }
+
+  // Función recursiva para calcular Fibonacci
+  public static int fibonacci(int n) {
+    if (n <= 1) {
+      return n;  // Condiciones base
+    } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);  // Llamadas recursivas
+    }
+  }
+
+  // Versión ITERATIVA del factorial (para comparar)
+  public static int factorialIterativo(int n) {
+    int resultado = 1;
+    for (int i = 1; i <= n; i++) {
+      resultado *= i;
+    }
+    return resultado;
+  }
+}</code></pre>
+                </div>
+
+                <div class="important-box">
+                    <strong>💡 Recursividad vs Iteración:</strong>
+                    <br>Muchos problemas pueden resolverse tanto de forma recursiva como iterativa. La recursividad es más elegante y cercana a definiciones matemáticas, pero la iteración suele ser más eficiente en memoria.
+                </div>
+            </div>
+
+            <!-- 2.6 Palabras Reservadas -->
+            <div class="section-card">
+                <h3>2.6 Palabras Reservadas</h3>
+                <p>Las palabras reservadas son identificadores predefinidos que tienen un significado especial para el compilador de Java.</p>
+
+                <div class="concept-box">
+                    <strong>📚 Clasificación:</strong>
+
+                    <br><br><strong>Tipos de datos:</strong>
+                    <br><code>boolean, byte, char, double, float, int, long, short, void</code>
+
+                    <br><br><strong>Control de flujo:</strong>
+                    <br><code>if, else, switch, case, default, while, do, for, break, continue, return</code>
+
+                    <br><br><strong>Modificadores de acceso:</strong>
+                    <br><code>public, private, protected, static, final, abstract</code>
+
+                    <br><br><strong>Clases y objetos:</strong>
+                    <br><code>class, interface, extends, implements, new, this, super</code>
+
+                    <br><br><strong>Otras:</strong>
+                    <br><code>import, package, null, instanceof, try, catch, finally, throw, throws</code>
+                </div>
+
+                <div class="important-box">
+                    <strong>⚠️ Importante:</strong> Las palabras reservadas NO pueden usarse como nombres de variables, métodos o clases. Java las reconoce automáticamente y las usa para estructurar el código.
+                </div>
+            </div>
+
+            <!-- 2.7 Pseudocódigo -->
+            <div class="section-card">
+                <h3>2.7 Pseudocódigo</h3>
+                <p>El pseudocódigo es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.</p>
+
+                <h4>🎯 Objetivos del Pseudocódigo:</h4>
                 <ul>
-                    <li><strong>2.1 Condicionales</strong> - if, if-else, if-else-if, switch</li>
-                    <li><strong>2.2 Bucles</strong> - for, while, do-while</li>
-                    <li><strong>2.3 Estructuras de Salto</strong> - break, continue, return</li>
-                    <li><strong>2.4 Funciones</strong> - Métodos reutilizables</li>
-                    <li><strong>2.5 Recursividad</strong> - Funciones que se llaman a sí mismas</li>
-                    <li><strong>2.6 Palabras Reservadas</strong> - Identificadores del lenguaje</li>
-                    <li><strong>2.7 Pseudocódigo</strong> - Descripción de algoritmos</li>
+                    <li>Planificar algoritmos sin preocuparse por la sintaxis</li>
+                    <li>Concentrarse en la lógica del problema</li>
+                    <li>Facilitar la comunicación entre programadores</li>
+                    <li>Servir como puente entre el problema y el código</li>
                 </ul>
-                <p><em>Revisa la sección de Resumen para ver los conceptos detallados</em></p>
+
+                <div class="concept-box">
+                    <strong>Estructura General:</strong>
+                    <pre>Proceso NombreProceso
+    acción 1;
+    acción 2;
+    ...
+    acción n;
+FinProceso</pre>
+
+                    <strong>Elementos Comunes:</strong>
+                    <ul>
+                        <li>ENTRADA / SALIDA</li>
+                        <li>SI...ENTONCES...SINO</li>
+                        <li>PARA...HASTA...HACER</li>
+                        <li>MIENTRAS...HACER</li>
+                        <li>DEVOLVER</li>
+                    </ul>
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <pre><code>/*
+PSEUDOCÓDIGO - Calcular potencia:
+
+ALGORITMO CalcularPotencia
+    ENTRADA: base (entero), exponente (entero)
+    SALIDA: resultado (entero)
+
+    SI exponente = 0 ENTONCES
+        resultado <- 1
+    SINO
+        resultado <- 1
+        PARA i <- 1 HASTA exponente HACER
+            resultado <- resultado * base
+        FIN PARA
+    FIN SI
+
+    DEVOLVER resultado
+FIN ALGORITMO
+*/
+
+// CÓDIGO JAVA equivalente:
+public class Main {
+  public static void main(String[] args) {
+    int resultado = potencia(2, 3);
+    System.out.println("Resultado: " + resultado);
+  }
+
+  public static int potencia(int base, int exponente) {
+    if (exponente == 0) {
+      return 1;
+    } else {
+      int resultado = 1;
+      for (int i = 1; i <= exponente; i++) {
+        resultado *= base;
+      }
+      return resultado;
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div class="important-box">
+                    <strong>💡 Ventaja Principal:</strong> El pseudocódigo es independiente del lenguaje de programación, lo que permite planificar la solución una vez y luego implementarla en cualquier lenguaje (Java, Python, C++, etc.).
+                </div>
             </div>
         </div>
 
@@ -798,280 +1258,19 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <!-- SECCIÓN EJERCICIOS INTERACTIVOS -->
-        <div id="ejercicios" class="content-section">
-            <h2>🎮 Ejercicios Interactivos</h2>
-
-            <div class="score-tracker">
-                <h3>📊 Tu Puntuación</h3>
-                <div class="score-number" id="scoreDisplay">0 / 10</div>
-                <p>¡Responde correctamente para ganar puntos!</p>
-                <button class="reset-btn" onclick="resetScore()">🔄 Reiniciar Puntuación</button>
-            </div>
-
-            <div class="section-card">
-                <h3>📝 Instrucciones</h3>
-                <p>A continuación encontrarás ejercicios interactivos divididos en tres tipos:</p>
-                <ul>
-                    <li><strong>🎯 Opción Múltiple:</strong> Selecciona la respuesta correcta</li>
-                    <li><strong>💻 Código Interactivo:</strong> Completa el código y ejecútalo</li>
-                    <li><strong>🧩 Desafíos Prácticos:</strong> Resuelve problemas de programación</li>
-                </ul>
-                <p><em>Cada respuesta correcta suma 1 punto. ¡Intenta obtener 10/10!</em></p>
-            </div>
-
-            <!-- EJERCICIO 1: Variables y Tipos de Datos -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 1</div>
-                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Cuál es el tipo de dato correcto para almacenar el valor <code>true</code> o <code>false</code>?</strong>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(1, 'a', false)">A) int</button>
-                    <button class="option-btn" onclick="checkAnswer(1, 'b', false)">B) String</button>
-                    <button class="option-btn" onclick="checkAnswer(1, 'c', true)">C) boolean</button>
-                    <button class="option-btn" onclick="checkAnswer(1, 'd', false)">D) char</button>
-                </div>
-                <div class="exercise-feedback" id="feedback1"></div>
-                <button class="hint-btn" onclick="toggleHint(1)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint1">
-                    <strong>Pista:</strong> Este tipo de dato solo puede tener dos valores posibles: verdadero o falso.
-                </div>
-            </div>
-
-            <!-- EJERCICIO 2: Operadores -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 2</div>
-                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Cuál es el resultado de la expresión <code>10 % 3</code>?</strong>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(2, 'a', false)">A) 3</button>
-                    <button class="option-btn" onclick="checkAnswer(2, 'b', true)">B) 1</button>
-                    <button class="option-btn" onclick="checkAnswer(2, 'c', false)">C) 0</button>
-                    <button class="option-btn" onclick="checkAnswer(2, 'd', false)">D) 10</button>
-                </div>
-                <div class="exercise-feedback" id="feedback2"></div>
-                <button class="hint-btn" onclick="toggleHint(2)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint2">
-                    <strong>Pista:</strong> El operador % (módulo) devuelve el resto de una división. Por ejemplo: 10 ÷ 3 = 3 con resto de...
-                </div>
-            </div>
-
-            <!-- EJERCICIO 3: Condicionales -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 3</div>
-                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Qué imprimirá el siguiente código?</strong>
-                    <pre><code>int x = 5;
-if (x > 3 && x < 10) {
-    System.out.println("A");
-} else {
-    System.out.println("B");
-}</code></pre>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(3, 'a', true)">A) A</button>
-                    <button class="option-btn" onclick="checkAnswer(3, 'b', false)">B) B</button>
-                    <button class="option-btn" onclick="checkAnswer(3, 'c', false)">C) Nada</button>
-                    <button class="option-btn" onclick="checkAnswer(3, 'd', false)">D) Error</button>
-                </div>
-                <div class="exercise-feedback" id="feedback3"></div>
-                <button class="hint-btn" onclick="toggleHint(3)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint3">
-                    <strong>Pista:</strong> Evalúa si x es mayor que 3 Y menor que 10. El operador && requiere que ambas condiciones sean verdaderas.
-                </div>
-            </div>
-
-            <!-- EJERCICIO 4: Bucles -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 4</div>
-                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Cuántas veces se ejecutará el siguiente bucle?</strong>
-                    <pre><code>for (int i = 0; i < 5; i++) {
-    System.out.println(i);
-}</code></pre>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(4, 'a', false)">A) 4 veces</button>
-                    <button class="option-btn" onclick="checkAnswer(4, 'b', true)">B) 5 veces</button>
-                    <button class="option-btn" onclick="checkAnswer(4, 'c', false)">C) 6 veces</button>
-                    <button class="option-btn" onclick="checkAnswer(4, 'd', false)">D) Infinitas veces</button>
-                </div>
-                <div class="exercise-feedback" id="feedback4"></div>
-                <button class="hint-btn" onclick="toggleHint(4)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint4">
-                    <strong>Pista:</strong> El bucle se ejecuta mientras i < 5. Comienza en 0 y cuenta: 0, 1, 2, 3, 4 (cinco números).
-                </div>
-            </div>
-
-            <!-- EJERCICIO 5: Código Interactivo - Variables -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 5 💻</div>
-                    <div class="exercise-difficulty">⭐ Nivel: Básico</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>Completa el código para declarar una variable de tipo String con tu nombre y luego imprímela.</strong>
-                </div>
-                <div class="code-editor">
-                    <textarea class="code-input" id="code5" placeholder="Escribe tu código aquí...">// Declara una variable String llamada "nombre" con tu nombre
-// Luego imprímela usando System.out.println()
-
-</textarea>
-                    <button class="run-btn" onclick="runCode(5)">▶️ Ejecutar Código</button>
-                    <div class="output-console" id="output5"></div>
-                </div>
-                <button class="hint-btn" onclick="toggleHint(5)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint5">
-                    <strong>Pista:</strong> Usa la sintaxis: <code>String nombre = "TuNombre";</code> y luego <code>System.out.println(nombre);</code>
-                </div>
-            </div>
-
-            <!-- EJERCICIO 6: Código Interactivo - Operaciones -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 6 💻</div>
-                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>Crea un programa que calcule el área de un rectángulo con base 10 y altura 5.</strong>
-                </div>
-                <div class="code-editor">
-                    <textarea class="code-input" id="code6" placeholder="Escribe tu código aquí...">// Declara las variables base y altura
-// Calcula el área (base * altura)
-// Imprime el resultado
-
-</textarea>
-                    <button class="run-btn" onclick="runCode(6)">▶️ Ejecutar Código</button>
-                    <div class="output-console" id="output6"></div>
-                </div>
-                <button class="hint-btn" onclick="toggleHint(6)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint6">
-                    <strong>Pista:</strong> El área de un rectángulo se calcula: área = base × altura
-                </div>
-            </div>
-
-            <!-- EJERCICIO 7: Código Interactivo - Condicionales -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 7 💻</div>
-                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>Escribe un programa que determine si un número es par o impar. Usa el número 15.</strong>
-                </div>
-                <div class="code-editor">
-                    <textarea class="code-input" id="code7" placeholder="Escribe tu código aquí...">// Declara una variable numero con valor 15
-// Usa if-else para verificar si es par o impar
-// Imprime "El número es par" o "El número es impar"
-
-</textarea>
-                    <button class="run-btn" onclick="runCode(7)">▶️ Ejecutar Código</button>
-                    <div class="output-console" id="output7"></div>
-                </div>
-                <button class="hint-btn" onclick="toggleHint(7)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint7">
-                    <strong>Pista:</strong> Un número es par si <code>numero % 2 == 0</code>, de lo contrario es impar.
-                </div>
-            </div>
-
-            <!-- EJERCICIO 8: Código Interactivo - Bucles -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 8 💻</div>
-                    <div class="exercise-difficulty">⭐⭐⭐ Nivel: Avanzado</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>Crea un bucle que imprima los números del 1 al 10.</strong>
-                </div>
-                <div class="code-editor">
-                    <textarea class="code-input" id="code8" placeholder="Escribe tu código aquí...">// Usa un bucle for para imprimir números del 1 al 10
-// Cada número debe imprimirse en una línea
-
-</textarea>
-                    <button class="run-btn" onclick="runCode(8)">▶️ Ejecutar Código</button>
-                    <div class="output-console" id="output8"></div>
-                </div>
-                <button class="hint-btn" onclick="toggleHint(8)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint8">
-                    <strong>Pista:</strong> Usa <code>for (int i = 1; i <= 10; i++)</code> y dentro del bucle <code>System.out.println(i);</code>
-                </div>
-            </div>
-
-            <!-- EJERCICIO 9: Casting -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 9</div>
-                    <div class="exercise-difficulty">⭐⭐ Nivel: Intermedio</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Qué valor tendrá la variable <code>resultado</code> después de ejecutar este código?</strong>
-                    <pre><code>double decimal = 7.9;
-int resultado = (int) decimal;</code></pre>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(9, 'a', false)">A) 8</button>
-                    <button class="option-btn" onclick="checkAnswer(9, 'b', true)">B) 7</button>
-                    <button class="option-btn" onclick="checkAnswer(9, 'c', false)">C) 7.9</button>
-                    <button class="option-btn" onclick="checkAnswer(9, 'd', false)">D) Error</button>
-                </div>
-                <div class="exercise-feedback" id="feedback9"></div>
-                <button class="hint-btn" onclick="toggleHint(9)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint9">
-                    <strong>Pista:</strong> El casting explícito a int trunca (corta) los decimales, no redondea.
-                </div>
-            </div>
-
-            <!-- EJERCICIO 10: Recursividad -->
-            <div class="exercise-container">
-                <div class="exercise-header">
-                    <div class="exercise-number">Ejercicio 10</div>
-                    <div class="exercise-difficulty">⭐⭐⭐ Nivel: Avanzado</div>
-                </div>
-                <div class="exercise-question">
-                    <strong>¿Cuál es el elemento más importante en una función recursiva para evitar un bucle infinito?</strong>
-                </div>
-                <div class="exercise-options">
-                    <button class="option-btn" onclick="checkAnswer(10, 'a', false)">A) Un bucle for</button>
-                    <button class="option-btn" onclick="checkAnswer(10, 'b', true)">B) Un caso base</button>
-                    <button class="option-btn" onclick="checkAnswer(10, 'c', false)">C) Una variable global</button>
-                    <button class="option-btn" onclick="checkAnswer(10, 'd', false)">D) Un operador lógico</button>
-                </div>
-                <div class="exercise-feedback" id="feedback10"></div>
-                <button class="hint-btn" onclick="toggleHint(10)">💡 Ver Pista</button>
-                <div class="hint-box" id="hint10">
-                    <strong>Pista:</strong> Es la condición que detiene la recursión y evita que la función se llame infinitamente.
-                </div>
-            </div>
 
             <div class="section-card" style="background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);">
-                <h3>🏆 ¡Excelente Trabajo!</h3>
-                <p>Has completado todos los ejercicios interactivos. Aquí tienes algunas sugerencias:</p>
+                <h3>🚀 Siguientes Pasos</h3>
                 <ol>
-                    <li>Repasa los ejercicios que respondiste incorrectamente</li>
-                    <li>Intenta resolver los ejercicios de código sin mirar las pistas</li>
-                    <li>Experimenta modificando los códigos de ejemplo</li>
-                    <li>Crea tus propios ejercicios basándote en estos ejemplos</li>
-                    <li>Practica en un IDE real (Eclipse, IntelliJ IDEA, NetBeans)</li>
+                    <li>Repasa cada sección de los temas 1 y 2</li>
+                    <li>Practica escribiendo los ejemplos de código</li>
+                    <li>Modifica los ejemplos para experimentar</li>
+                    <li>Intenta resolver ejercicios similares por tu cuenta</li>
+                    <li>Usa un IDE para compilar y ejecutar tus programas</li>
+                    <li>Consulta la documentación oficial de Java cuando tengas dudas</li>
                 </ol>
             </div>
         </div>
-
 
         <div class="footer">
             <p><strong>🎓 App de Estudio - Programación Java</strong></p>
@@ -1088,28 +1287,30 @@ int resultado = (int) decimal;</code></pre>
         </div>
     </div>
 
-    <script>
-        // Variables globales
-        let score = 0;
-        let totalQuestions = 10;
-        let answeredQuestions = new Set();
 
+    <script>
         // Sistema de navegación
         function showSection(sectionId) {
+            // Ocultar todas las secciones
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
 
+            // Mostrar la sección seleccionada
             document.getElementById(sectionId).classList.add('active');
 
+            // Actualizar botones de navegación
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
 
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Actualizar progreso
             updateProgress(sectionId);
         }
 
@@ -1123,16 +1324,13 @@ int resultado = (int) decimal;</code></pre>
                     progress = 10;
                     break;
                 case 'tema1':
-                    progress = 30;
+                    progress = 40;
                     break;
                 case 'tema2':
-                    progress = 50;
-                    break;
-                case 'resumen':
                     progress = 70;
                     break;
-                case 'ejercicios':
-                    progress = 90;
+                case 'resumen':
+                    progress = 100;
                     break;
             }
 
@@ -1150,6 +1348,7 @@ int resultado = (int) decimal;</code></pre>
             document.execCommand('copy');
             document.body.removeChild(textArea);
 
+            // Cambiar texto del botón temporalmente
             const originalText = button.textContent;
             button.textContent = '✅ ¡Copiado!';
             button.style.background = '#27ae60';
@@ -1160,184 +1359,10 @@ int resultado = (int) decimal;</code></pre>
             }, 2000);
         }
 
-        // Sistema de puntuación
-        function updateScore() {
-            document.getElementById('scoreDisplay').textContent = score + ' / ' + totalQuestions;
-        }
-
-        function resetScore() {
-            score = 0;
-            answeredQuestions.clear();
-            updateScore();
-
-            // Resetear todos los ejercicios
-            for (let i = 1; i <= totalQuestions; i++) {
-                const feedback = document.getElementById('feedback' + i);
-                if (feedback) {
-                    feedback.classList.remove('show');
-                    feedback.className = 'exercise-feedback';
-                }
-
-                // Resetear botones de opciones
-                const container = feedback?.parentElement;
-                if (container) {
-                    const optionBtns = container.querySelectorAll('.option-btn');
-                    optionBtns.forEach(btn => {
-                        btn.classList.remove('correct', 'incorrect', 'disabled');
-                        btn.disabled = false;
-                    });
-                }
-
-                // Limpiar consolas de código
-                const output = document.getElementById('output' + i);
-                if (output) {
-                    output.classList.remove('show');
-                    output.textContent = '';
-                }
-            }
-
-            alert('✅ ¡Puntuación reiniciada! Puedes volver a intentar los ejercicios.');
-        }
-
-        // Verificar respuestas de opción múltiple
-        function checkAnswer(questionNum, option, isCorrect) {
-            // Si ya fue respondida, no hacer nada
-            if (answeredQuestions.has(questionNum)) {
-                return;
-            }
-
-            const feedback = document.getElementById('feedback' + questionNum);
-            const optionBtns = event.target.parentElement.querySelectorAll('.option-btn');
-
-            // Deshabilitar todos los botones
-            optionBtns.forEach(btn => {
-                btn.classList.add('disabled');
-                btn.disabled = true;
-            });
-
-            // Marcar la respuesta
-            event.target.classList.add(isCorrect ? 'correct' : 'incorrect');
-
-            // Mostrar feedback
-            feedback.classList.add('show');
-            if (isCorrect) {
-                feedback.className = 'exercise-feedback feedback-correct show';
-                feedback.innerHTML = '<strong>✅ ¡Correcto!</strong> Excelente trabajo. Has comprendido el concepto.';
-                score++;
-                answeredQuestions.add(questionNum);
-                updateScore();
-            } else {
-                feedback.className = 'exercise-feedback feedback-incorrect show';
-                feedback.innerHTML = '<strong>❌ Incorrecto.</strong> Intenta revisar el concepto en la sección de Resumen.';
-            }
-        }
-
-        // Mostrar/ocultar pistas
-        function toggleHint(hintNum) {
-            const hint = document.getElementById('hint' + hintNum);
-            hint.classList.toggle('show');
-        }
-
-        // Ejecutar código (simulación)
-        function runCode(codeNum) {
-            const codeInput = document.getElementById('code' + codeNum).value.trim();
-            const output = document.getElementById('output' + codeNum);
-
-            if (!codeInput) {
-                output.classList.add('show');
-                output.textContent = '❌ Error: No has escrito ningún código.';
-                return;
-            }
-
-            output.classList.add('show');
-
-            // Simulación de ejecución basada en el ejercicio
-            let result = '';
-
-            switch(codeNum) {
-                case 5:
-                    // Ejercicio de String
-                    if (codeInput.includes('String') && codeInput.includes('=') && 
-                        codeInput.includes('System.out.println')) {
-                        const match = codeInput.match(/String\s+\w+\s*=\s*"([^"]+)"/);
-                        if (match) {
-                            result = '✅ Salida del programa:\n' + match[1];
-                            if (!answeredQuestions.has(codeNum)) {
-                                score++;
-                                answeredQuestions.add(codeNum);
-                                updateScore();
-                            }
-                        } else {
-                            result = '❌ Error: Verifica la sintaxis de tu código.';
-                        }
-                    } else {
-                        result = '❌ Error: Debes declarar una variable String e imprimirla.';
-                    }
-                    break;
-
-                case 6:
-                    // Ejercicio de área
-                    if ((codeInput.includes('10') && codeInput.includes('5')) || 
-                        (codeInput.includes('base') && codeInput.includes('altura'))) {
-                        if (codeInput.includes('*') || codeInput.includes('área') || codeInput.includes('area')) {
-                            result = '✅ Salida del programa:\nEl área del rectángulo es: 50';
-                            if (!answeredQuestions.has(codeNum)) {
-                                score++;
-                                answeredQuestions.add(codeNum);
-                                updateScore();
-                            }
-                        } else {
-                            result = '❌ Error: Debes multiplicar base por altura.';
-                        }
-                    } else {
-                        result = '❌ Error: Verifica que uses los valores correctos (base=10, altura=5).';
-                    }
-                    break;
-
-                case 7:
-                    // Ejercicio par/impar
-                    if (codeInput.includes('15') && codeInput.includes('if') && codeInput.includes('%')) {
-                        if (codeInput.toLowerCase().includes('impar')) {
-                            result = '✅ Salida del programa:\nEl número es impar';
-                            if (!answeredQuestions.has(codeNum)) {
-                                score++;
-                                answeredQuestions.add(codeNum);
-                                updateScore();
-                            }
-                        } else {
-                            result = '⚠️ Verifica: 15 es un número impar.';
-                        }
-                    } else {
-                        result = '❌ Error: Usa if-else y el operador % para verificar si es par o impar.';
-                    }
-                    break;
-
-                case 8:
-                    // Ejercicio bucle
-                    if (codeInput.includes('for') && codeInput.includes('println')) {
-                        result = '✅ Salida del programa:\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10';
-                        if (!answeredQuestions.has(codeNum)) {
-                            score++;
-                            answeredQuestions.add(codeNum);
-                            updateScore();
-                        }
-                    } else {
-                        result = '❌ Error: Debes usar un bucle for y System.out.println().';
-                    }
-                    break;
-
-                default:
-                    result = 'Código ejecutado.';
-            }
-
-            output.textContent = result;
-        }
-
-        // Inicializar
+        // Inicializar progreso
         updateProgress('inicio');
-        updateScore();
 
-        // Añadir efecto de resaltado
+        // Añadir efecto de resaltado al pasar por secciones
         const sectionCards = document.querySelectorAll('.section-card');
         sectionCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -1346,28 +1371,6 @@ int resultado = (int) decimal;</code></pre>
             card.addEventListener('mouseleave', function() {
                 this.style.borderLeft = '';
             });
-        });
-
-        // Guardar progreso en localStorage
-        window.addEventListener('beforeunload', function() {
-            localStorage.setItem('javaAppScore', score);
-            localStorage.setItem('javaAppAnswered', JSON.stringify([...answeredQuestions]));
-        });
-
-        // Cargar progreso guardado
-        window.addEventListener('load', function() {
-            const savedScore = localStorage.getItem('javaAppScore');
-            const savedAnswered = localStorage.getItem('javaAppAnswered');
-
-            if (savedScore) {
-                score = parseInt(savedScore);
-                updateScore();
-            }
-
-            if (savedAnswered) {
-                const answered = JSON.parse(savedAnswered);
-                answered.forEach(q => answeredQuestions.add(q));
-            }
         });
     </script>
 </body>
